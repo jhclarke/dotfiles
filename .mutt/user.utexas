@@ -1,0 +1,7 @@
+# User config
+set my_realname="James Clarke"
+set my_username="jclarke"
+set my_domain="chaos.utexas.edu"
+set my_password=`gnome-keyring-query get mutt_utexas`
+set my_lang="en_US"
+

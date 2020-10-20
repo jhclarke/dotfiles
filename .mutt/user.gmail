@@ -1,0 +1,7 @@
+# User config
+set my_realname="James Clarke"
+set my_username="`gnome-keyring-query get usngmail`"
+set my_domain="gmail.com"
+set my_password=`gnome-keyring-query get mutt_gmail`
+set my_lang="en_US"
+set my_record="[Gmail]/Sent<quote-char><space>Mail"

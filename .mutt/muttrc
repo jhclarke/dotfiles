@@ -1,0 +1,19 @@
+# Grabbing the folders for different accounts
+# ------------------
+folder-hook 'imaps://outlook.office365.com/' 'source ~/.mutt/account.utexas'
+folder-hook 'imaps://imap.gmail.com:993/' 'source ~/.mutt/account.gmail'
+# Default on startup
+# ------------------
+source ~/.mutt/account.gmail
+
+# Macro to switch between the two
+# -----------------
+macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account.gmail<enter><change-folder>!<enter>'
+macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/account.utexas<enter><change-folder>!<enter>'
+
+# Shared Settings
+set sleep_time = 0
+set mailcap_path=~/.mutt/mailcap
+set query_command="abook --mutt-query '%s'"
+macro index,pager a "|abook --add-email-quiet<return>" 'add sender to abook'
+bind editor <c-Q> complete-query
