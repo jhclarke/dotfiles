@@ -208,6 +208,8 @@ autocmd FileType python imap <buffer> <C-r> <esc>:w<CR>:exec '!python3' shellesc
 "*************************
 autocmd BufNewFile,BufRead /tmp/mutt* set noautoindent filetype=mail wm=0 tw=78 nonumber digraph nolist
 autocmd BufNewFile,BufRead ~/tmp/mutt* set noautoindent filetype=mail wm=0 tw=78 nonumber digraph nolist
+" set up syntax highlighting for my e-mail
+au BufRead,BufNewFile .followup,.article,.letter,/tmp/pico*,nn.*,snd.*,/tmp/mutt* :set ft=mail 
 
 " YouCompleteMe Settings
 "use omnicomplete whenever there's no completion engine in youcompleteme (for
