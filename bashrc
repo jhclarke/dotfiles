@@ -77,7 +77,6 @@ export EDITOR='vim'
 # OFX + Ledger Finances
 #---------------------
 export GLOBAL_PYTHON=/usr/bin/python3
-#source ~/.scripts/ofx2csv.py
 
 # Powerline
 #-----------------
