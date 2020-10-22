@@ -38,7 +38,7 @@ Plugin 'Konfekt/FastFold'
 Plugin 'matze/vim-tex-fold'
 Plugin 'JuliaEditorSupport/julia-vim'
 if !has('nvim')
-	Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'} " powerline status bar
+	Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'} " powerline status bar
 endif
 Plugin 'jupyter-vim/jupyter-vim' " jupyter plugin for python
 Plugin 'jalvesaq/Nvim-R', {'branch': 'stable'} " R-studio integration
@@ -91,6 +91,8 @@ endif
 " Toggle Dark/Light Mode
 call togglebg#map("<F5>")
 
+" Powerline support
+:set laststatus=2
 " Display relative line numbers, with absolute line number for current line
 set number
 set numberwidth=5
