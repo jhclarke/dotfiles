@@ -93,6 +93,7 @@ call togglebg#map("<F5>")
 
 " Powerline support
 :set laststatus=2
+let g:powerline_pycmd="py3"
 " Display relative line numbers, with absolute line number for current line
 set number
 set numberwidth=5
