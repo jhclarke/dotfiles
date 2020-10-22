@@ -49,7 +49,7 @@ Plugin 'autozimu/LanguageClient-neovim', {'branch': 'next','do': 'bash install.s
 " Plugins for Custom operators
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
-
+Plugin 'christoomey/vim-tmux-navigator'
 
 "***************
 " Color Schemes
