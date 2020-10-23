@@ -1,7 +1,7 @@
 #
 # ~/.bashrc
 #
-screenfetch
+screenfetch -c "5;6,0;0"
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
