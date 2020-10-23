@@ -9,6 +9,19 @@ alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
 
+# Terminal to kitty
+source <(kitty + complete setup bash)
+export TERMINAL="kitty"
+
+# Fish
+# drop into fish if parent process is NOT fish
+# invoke `bash` from fish with `bash` (sources `~/.bashrc`)
+if [[ $(ps --no-header --pid=$PPID --format=cmd) != "fish" ]]
+then
+  exec fish
+fi
+
+
 #################
 ### SHORTCUTS ###
 #################
