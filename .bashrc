@@ -8,6 +8,8 @@ screenfetch -c "5;6,0;0"
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
+# Random edit
+
 
 # Terminal to kitty
 source <(kitty + complete setup bash)
