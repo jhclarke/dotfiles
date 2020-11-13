@@ -12,16 +12,16 @@ PS1='[\u@\h \W]\$ '
 
 
 # Terminal to kitty
-source <(kitty + complete setup bash)
-export TERMINAL="kitty"
+# source <(kitty + complete setup bash)
+# export TERMINAL="kitty"
 
-# Fish
-# drop into fish if parent process is NOT fish
-# invoke `bash` from fish with `bash` (sources `~/.bashrc`)
-if [[ $(ps --no-header --pid=$PPID --format=cmd) != "fish" ]]
-then
-  exec fish
-fi
+# # Fish
+# # drop into fish if parent process is NOT fish
+# # invoke `bash` from fish with `bash` (sources `~/.bashrc`)
+# if [[ $(ps --no-header --pid=$PPID --format=cmd) != "fish" ]]
+# then
+#   exec fish
+# fi
 
 
 #################
@@ -42,6 +42,7 @@ alias SE='sudo -E nvim '
 
 # VPN Shortcuts
 alias gohome='sudo openvpn --config /etc/openvpn/client.ovpn'
+alias gomac='remmina -c ~/.local/share/remmina/remotes_vnc_mbp-ag_192-168-1-113.remmina'
 alias gospt='systemctl --user restart spotifyd && spt'
 alias sysupdate='cd ~/.scripts && . update.sh'
 
