@@ -40,11 +40,18 @@ alias blth='bluetoothctl '
 alias vim='nvim '
 alias SE='sudo -E nvim '
 
-# VPN Shortcuts
+# VPN/VNC Shortcuts
+#------------------
 alias gohome='sudo openvpn --config /etc/openvpn/client.ovpn'
 alias gomac='remmina -c ~/.local/share/remmina/remotes_vnc_mbp-ag_192-168-1-113.remmina'
 alias gospt='systemctl --user restart spotifyd && spt'
 alias sysupdate='cd ~/.scripts && . update.sh'
+
+# ProtonVPN
+alias pvpn='sudo protonvpn '
+alias pvpnsecure='sudo protonvpn c --sc -p tcp'
+alias pvpnrand='sudo protonvpn c -r -p tcp' 
+alias pvpnupdate='sudo pip3 uninstall protonvpn-cli'
 
 # Python/Research Shortcuts
 #-----------------
@@ -86,6 +93,12 @@ alias gx='gitx --all'
 alias got='git '
 alias get='git '
 
+# SSH 
+alias gkinto='eval "$(ssh-agent -s)" && ssh-add -D && ssh-add /home/agathos/.ssh/id_rsa_kinto'
+alias gjc='eval "$(ssh-agent -s)" && ssh-add -D && DISPLAY=1 SSH_ASKPASS=/home/agathos/.ssh/paa/jc ssh-add /home/agathos/.ssh/id_rsa < /dev/null'
+
+
+
 export EDITOR='vim'
 
 
@@ -100,3 +113,6 @@ powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
 . /usr/share/powerline/bindings/bash/powerline.sh
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
