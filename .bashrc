@@ -8,7 +8,12 @@ screenfetch -c "5;6,0;0"
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
-# Random edit
+# Auto Load gnome-keyring daemon on bash session
+#------------------------------------------------
+if [ -n "$DESKTOP_SESSION" ];then
+    eval $(gnome-keyring-daemon --start)
+    export SSH_AUTH_SOCK
+fi
 
 
 # Terminal to kitty
@@ -46,6 +51,9 @@ alias gohome='sudo openvpn --config /etc/openvpn/client.ovpn'
 alias gomac='remmina -c ~/.local/share/remmina/remotes_vnc_mbp-ag_192-168-1-113.remmina'
 alias gospt='systemctl --user restart spotifyd && spt'
 alias sysupdate='cd ~/.scripts && . update.sh'
+alias gowin-full='xfreerdp /u:`gnome-keyring-query get eid` /v:`gnome-keyring-query get alabip` /workarea -f'
+alias gowin='xfreerdp /u:`gnome-keyring-query get eid`  /v:`gnome-keyring-query get alabip`'
+
 
 # ProtonVPN
 alias pvpn='sudo protonvpn '
@@ -96,8 +104,11 @@ alias get='git '
 # SSH 
 alias gkinto='eval "$(ssh-agent -s)" && ssh-add -D && ssh-add /home/agathos/.ssh/id_rsa_kinto'
 alias gjc='eval "$(ssh-agent -s)" && ssh-add -D && DISPLAY=1 SSH_ASKPASS=/home/agathos/.ssh/paa/jc ssh-add /home/agathos/.ssh/id_rsa < /dev/null'
+alias goinos='eval "$(ssh-agent -s)" && ssh-add -D && DISPLAY=1 SSH_ASKPASS=/home/agathos/.ssh/paa/oinos ssh-add /home/agathos/.ssh/id_rsa_oinos < /dev/null'
 
-
+# xbox
+alias xboxoff='xbox-cli poweroff'
+alias xboxon='xbox-cli poweron --liveid FD0001B5C6D173A7'
 
 export EDITOR='vim'
 
