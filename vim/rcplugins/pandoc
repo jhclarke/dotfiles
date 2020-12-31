@@ -1,0 +1,4 @@
+Plug 'vim-pandoc/vim-pandoc' " Pandoc
+Plug 'vim-pandoc/vim-pandoc-syntax' " Pandoc syntax
+
+" vim:ft=vim

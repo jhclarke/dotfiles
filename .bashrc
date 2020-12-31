@@ -15,6 +15,7 @@ if [ -n "$DESKTOP_SESSION" ];then
     export SSH_AUTH_SOCK
 fi
 
+export LD_LIBRARY_PATH=/opt/OpenBLAS/lib:$LD_LIBRARY_PATH
 
 # Terminal to kitty
 # source <(kitty + complete setup bash)
@@ -28,7 +29,7 @@ fi
 #   exec fish
 # fi
 
-
+alias python3.8='/usr/bin/python3.8'
 #################
 ### SHORTCUTS ###
 #################
@@ -51,8 +52,8 @@ alias gohome='sudo openvpn --config /etc/openvpn/client.ovpn'
 alias gomac='remmina -c ~/.local/share/remmina/remotes_vnc_mbp-ag_192-168-1-113.remmina'
 alias gospt='systemctl --user restart spotifyd && spt'
 alias sysupdate='cd ~/.scripts && . update.sh'
-alias gowin-full='xfreerdp /u:`gnome-keyring-query get eid` /v:`gnome-keyring-query get alabip` /workarea -f'
-alias gowin='xfreerdp /u:`gnome-keyring-query get eid`  /v:`gnome-keyring-query get alabip`'
+alias gowin-full='xfreerdp /u:"`gnome-keyring-query get winusn`" /v:`gnome-keyring-query get winip` /workarea -f'
+alias gowin='xfreerdp /u:"`gnome-keyring-query get winusn`"  /v:`gnome-keyring-query get winip`'
 
 
 # ProtonVPN
@@ -116,7 +117,7 @@ export EDITOR='vim'
 #---------------------
 # OFX + Ledger Finances
 #---------------------
-export GLOBAL_PYTHON=/usr/bin/python3
+# export GLOBAL_PYTHON=/usr/bin/python3
 
 # Powerline
 #-----------------

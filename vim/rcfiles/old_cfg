@@ -1,0 +1,66 @@
+"******************
+" Old Settings
+"******************
+
+" These settings are being kept around in case of issues moving forward with coc
+" mainly. They represent different code completion frameworks (prabirshrestha
+" was the best, but still pretty slow compared to coc)
+
+" UNFILED PLUGINS!!!!! (Waiting for COC configuration)
+"*********
+"Plugin 'neomake/neomake', { 'for': ['rust', 'haskell', 'typescript'] }
+"Plugin 'autozimu/LanguageClient-neovim', {'branch': 'next','do': 'bash install.sh'} " Fortran autocomplete
+
+" Async Completion Framework
+" ---------------------------
+"  With deoplete
+" if has('nvim')
+"   Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" else
+"   Plugin 'Shougo/deoplete.nvim'
+"   Plugin 'roxma/nvim-yarp'
+"   Plugin 'roxma/vim-hug-neovim-rpc'
+" endif
+
+" With prabirshrestha
+" Updated for LSP via sophiabrandt on 12/20/2020
+"Plugin 'prabirshrestha/async.vim'
+"Plugin 'prabirshrestha/asyncomplete.vim'
+"Plugin 'prabirshrestha/asyncomplete-lsp.vim'
+"Plugin 'prabirshrestha/vim-lsp'
+"Plugin 'mattn/vim-lsp-settings'
+"Plugin 'dense-analysis/ale'
+" Languages
+"Plugin 'machakann/vim-lsp-julia'
+
+" --
+
+" -------------------
+" LSP Configuration
+" -------------------
+" With deoplete
+" let g:deoplete#enable_at_startup = 1
+" let g:auto_complete_popup = "auto"
+
+
+" With prabirshrestha
+" inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" inoremap <expr> <cr> pumvisible() ? asyncomplete#close_popup() . "\<cr>" : "\<cr>"
+
+" " Disable Auto Popup of completion window and replace with tab event
+" " ------------------
+" let g:asyncomplete_auto_popup = 0
+
+" function! s:check_back_space() abort
+"     let col = col('.') - 1
+"     return !col || getline('.')[col - 1]  =~ '\s'
+" endfunction
+
+" inoremap <silent><expr> <TAB>
+"   \ pumvisible() ? "\<C-n>" :
+"   \ <SID>check_back_space() ? "\<TAB>" :
+"   \ asyncomplete#force_refresh()
+" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+" vim:ft=vim

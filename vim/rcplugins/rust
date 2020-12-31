@@ -1,0 +1,3 @@
+Plug 'rust-lang/rust.vim' " Rust language support
+
+" vim:ft=vim

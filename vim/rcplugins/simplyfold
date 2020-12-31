@@ -1,0 +1,4 @@
+Plug 'tmhedberg/SimpylFold' " For folding lines of code  
+Plug 'Konfekt/FastFold'
+
+" vim:ft=vim

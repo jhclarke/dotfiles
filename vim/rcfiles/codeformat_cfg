@@ -1,0 +1,58 @@
+"********************
+" Formatting Code
+"********************
+
+" Set runtime paths for ruby, python, nodejs
+if has('nvim')
+  set inccommand=nosplit
+  let g:ruby_host_prog    = '~/.gem/ruby/2.7.0/bin/neovim-ruby-host'
+  let g:node_host_prog    = '/usr/lib/node_modules/neovim/bin/cli.js'
+  let g:python_host_prog  = '/usr/bin/python2'
+  let g:python3_host_prog = '/usr/bin/python3'
+endif
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+
+" Display docstrings when folded
+let g:SimpylFold_docstring_preview=1
+
+" Enable folding with the spacebar
+nnoremap <space> za
+
+" Coloration for bad white space
+highlight BadWhitespace ctermbg=red guibg=red
+let python_highlight_all=1
+
+syntax on
+
+" Indentation for python files.
+au BufNewFile,BufRead *.py
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix 
+
+" Indentation for other files
+au BufNewFile,BufRead *.js, *.html, *.css, *.jl, *.tex, *.rs
+    \ set tabstop=2 |
+    \ set softtabstop=2 |
+    \ set shiftwidth=2 
+
+" Flag unecessary white-space
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h,*.jl,*.tex,*.rs match BadWhitespace /\s\+$/
+
+" Commentary Configuration (For commenting lines & other objects)
+autocmd FileType c,cpp,java,scala,rust setlocal commentstring=/\/\ %s
+autocmd FileType sh,ruby,python setlocal commentstring=#\ %s
+autocmd FileType conf,fstab setlocal commentstring=#\ %s
+autocmd FileType tex setlocal commentstring=%\ %s
+autocmd FileType mail setlocal commentstring=>\ %s
+autocmd FileType vim setlocal commentstring=\"\ %s
+autocmd FileType fortran setlocal commentstring=!\ %s
+
+" vim:ft=vim

@@ -1,0 +1,22 @@
+"*********************
+" Style Configuration
+"*********************
+
+if has('gui_running')
+  set background=dark
+  colo solarized
+else
+  set background=light
+"  colo zenburn
+"  colo evening
+"  colo elflord 
+  colo jummidark
+endif
+
+" Toggle Dark/Light Mode
+call togglebg#map("<F5>")
+
+
+
+" vim:ft=vim
+

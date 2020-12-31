@@ -1,0 +1,61 @@
+{
+  "coc.preferences.jumpCommand": "drop",
+  "coc.preferences.hoverTarget": "float",
+  "diagnostic.refreshOnInsertMode": true,
+  "suggest.floatEnable": true,
+  "suggest.noselect": false,
+  "suggest.acceptSuggestionOnCommitCharacter": true,
+  "suggest.enablePreview": true,
+  "suggest.enablePreselect": true,
+  "diagnostic.errorSign": "!!",
+  "diagnostic.warningSign": "!!",
+  "diagnostic.infoSign": "!!",
+  "diagnostic.hintSign": "!!",
+  "diagnostic.signOffset": 999999,
+  "diagnostic.maxWindowHeight": 20,
+  "signature.maxWindowHeight": 20,
+  "diagnostic.checkCurrentLine": true,
+  "coc.preferences.currentFunctionSymbolAutoUpdate": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "Markdown",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "python",
+    "rust",
+    "cpp",
+    "latex"
+  ],
+  "prettier.requireConfig": true,
+  "eslint.autoFixOnSave": true,
+  "html.format.enable": true,
+  "tsserver.formatOnType": true,
+  "coc.preferences.formatOnType": true,
+  "python.linting.enabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.linting.flake8Args": ["--disable=C0111"],
+  "python.linting.ignorePatterns": ["**/site-packages/**/*.py"],
+  "languageserver": {
+	  "ccls": {
+	    "command": "ccls",
+	    "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"],
+	    "rootPatterns": [".ccls", "compile_commands.json", ".git/", ".hg/"],
+	    "initializationOptions": {
+		"cache": {
+		  "directory": "/tmp/ccls"
+		}
+	      }
+	  }
+	},
+  "languageserver": {
+	  "fortran": {
+	    "command": "fortls",
+	    "filetypes": ["fortran"],
+	    "rootPatterns": [".fortls", ".git/"]
+	  }
+  },
+  "python.formatting.provider": "black"
+}

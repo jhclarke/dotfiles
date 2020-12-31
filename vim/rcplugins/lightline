@@ -1,0 +1,18 @@
+" https://github.com/itchyny/lightline.vim
+
+Plug 'itchyny/lightline.vim'
+set noshowmode
+
+" Set to work with fugitive for git status
+let g:lightline = {
+      \ 'colorscheme': 'deus',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
+
+" vim:ft=vim

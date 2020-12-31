@@ -1,0 +1,5 @@
+" Automake directory for file saves
+" -------------------------
+Plug 'mopp/autodirmake.vim'
+
+" vim:ft=vim

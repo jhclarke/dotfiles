@@ -1,0 +1,3 @@
+Plug 'JuliaEditorSupport/julia-vim'
+
+" vim:ft=vim

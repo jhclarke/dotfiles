@@ -1,0 +1,5 @@
+Plug 'vim-scripts/indentpython.vim' " auto-indenting in python
+Plug 'nvie/vim-flake8' " PEP 8 support
+Plug 'jupyter-vim/jupyter-vim' " jupyter plugin for python
+
+" vim:ft=vim

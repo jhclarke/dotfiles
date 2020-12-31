@@ -1,0 +1,8 @@
+"***************
+" Color Schemes
+"***************
+Plug 'jnurmine/Zenburn' 
+Plug 'altercation/vim-colors-solarized'
+Plug 'jcherven/jummidark.vim'
+
+" vim:ft=vim

@@ -1,0 +1,33 @@
+"***********************
+" Fortran Configuration
+"***********************
+let fortran_free_source=1
+let fortran_have_tabs=1
+let fortran_more_precise=1
+let fortran_do_enddo=1
+let fortran_fold=1
+let fortran_fold_multilinecomments=1
+let fortran_fold_conditionals=1
+
+" OMP directives
+syn region fortranDirective start=/!$omp.\{-}/ end=/[^\&]$/
+syn match fortranDirective "\v!\$\s"
+
+
+" Required for operations modifying multiple buffers like rename.
+set hidden
+
+"let g:LanguageClient_serverCommands = {
+    \   'fortran': ['fortls', '--symbol_skip_mem', '--incrmental_sync', '--autocomplete_no_prefix']
+    \ }
+
+"LanguageComplete settings (fortran)
+" set completefunc=LanguageClient#complete
+" set formatexpr=LanguageClient_textDocument_rangeFormatting()
+" nnoremap <leader> gh :call LanguageClient_textDocument_hover()<CR>
+" nnoremap <leader> gd :call LanguageClient_textDocument_definition()<CR>
+" nnoremap <leader> gr :call LanguageClient_textDocument_references()<CR>
+" nnoremap <leader> gs :call LanguageClient_textDocument_documentSymbol()<CR>
+" nnoremap <leader> R :call LanguageClient_textDocument_rename()<CR>
+
+" vim:ft=vim

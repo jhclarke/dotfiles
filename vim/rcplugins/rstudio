@@ -1,0 +1,3 @@
+Plug 'jalvesaq/Nvim-R', {'branch': 'stable'} " R-studio integration
+
+" vim:ft=vim

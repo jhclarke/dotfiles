@@ -1,0 +1,30 @@
+"*********************
+" Python Configuration
+"*********************
+
+" Support for virtual environments
+py3 << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  with open(activate_this) as f:
+   code = compile(f.read(), activate_this,'exec')
+   exec(code, dict(__file__=activate_this))
+EOF
+
+" Auto-activate python virtual environment when opening VIM
+" environment is loaded in the shell from which vim is launched
+let g:vim_virtualenv_path = '/usr/pyenvs/main'
+if exists('g:vim_virtualenv_path')
+    python3 import os; import vim
+    python3 activate_this = os.path.join(vim.eval('g:vim_virtualenv_path'),'bin/activate_this.py')
+    python3 with open(activate_this) as f: exec(f.read(), {'__file__': activate_this})
+endif
+
+" Run python script with Ctrl-i
+autocmd FileType python map <buffer> <C-r> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+autocmd FileType python imap <buffer> <C-r> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+
+" vim:ft=vim

@@ -1,0 +1,7 @@
+Plug 'scrooloose/nerdtree' " File Tree Support
+Plug 'jistr/vim-nerdtree-tabs' " Tabs Support
+
+" Toggle nerdtree
+map <C-n> :NERDTreeToggle<CR>
+
+" vim:ft=vim
