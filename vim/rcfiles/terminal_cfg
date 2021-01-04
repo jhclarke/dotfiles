@@ -25,9 +25,9 @@ set diffopt+=iwhite
 set diffopt+=vertical
 
 " floating windows
-highlight VertSplit guibg=NONE
-highlight NormalFloat guifg=#999999 guibg=#222222
-hi Pmenu guibg=#222222 guifg=#999999
+" highlight VertSplit guibg=NONE
+" highlight NormalFloat guifg=#af87ff guibg=#999999
+" hi Pmenu guibg=#999999 guifg=#af87ff
 
 
 " omnifunc
