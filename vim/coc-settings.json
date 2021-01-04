@@ -34,10 +34,77 @@
   "html.format.enable": true,
   "tsserver.formatOnType": true,
   "coc.preferences.formatOnType": true,
-  "python.linting.enabled": true,
-  "python.linting.flake8Enabled": true,
-  "python.linting.flake8Args": ["--disable=C0111"],
-  "python.linting.ignorePatterns": ["**/site-packages/**/*.py"],
+  "jedi.enable": true,
+  "jedi.startupMessage": true,
+  "jedi.markupKindPreferred": "plaintext",
+  "jedi.trace.server":"messages",
+  "jedi.jediSettings.autoImportModules": [],
+  "jedi.executable.command": "jedi-language-server",
+  "jedi.executable.args": [],
+  "jedi.completion.disableSnippets": false,
+  "jedi.diagnostics.enable": true,
+  "jedi.diagnostics.didOpen": true,
+  "jedi.diagnostics.didChange": true,
+  "jedi.diagnostics.didSave": true,
+  "jedi.workspace.extraPaths": [],
+  "suggest.autoTrigger":"always",
+  "suggest.triggerAfterInsertEnter": true,
+  "diagnostic-languageserver.filetypes": {
+  	"python": "pylint"
+	},
+  "diagnostic-languageserver.linters": {
+  	"pylint": {
+    		"sourceName": "pylint",
+    		"command": "pylint",
+		"args": [
+		      "--errorsonly",
+		      "--output-format",
+		      "text",
+		      "--score",
+		      "no",
+		      "--msg-template",
+		      "'{line}:{column}:{category}:{msg} ({msg_id}:{symbol})'",
+		      "%file"
+		],
+	    	"formatPattern": [
+	      		"^(\\d+?):(\\d+?):([a-z]+?):(.*)$",
+		      	{
+			 "line": 1,
+			 "column": 2,
+			 "security": 3,
+			 "message": 4
+		      	}
+	    	],
+	 	"rootPatterns": [".git", "pyproject.toml", "setup.py"],
+	    	"securities": {
+	      		"informational": "hint",
+	      		"refactor": "info",
+	      		"convention": "info",
+	      		"warning": "warning",
+	      		"error": "error",
+	      		"fatal": "error"
+	    	},
+	    	"offsetColumn": 1,
+	    	"formatLines": 1
+	}
+  },
+  "diagnostic-languageserver.formatFiletypes": {
+  	"python": ["black", "isort", "docformatter"]
+  },
+  "diagnostic-languageserver.formatters": {
+  	"black": {
+    		"command": "black",
+    		"args": ["black", "-q", "-"]
+  	},
+  	"isort": {
+    		"command": "isort",
+    		"args": ["-q", "-"]
+  	},
+  	"docformatter": {
+    		"command": "docformatter",
+    		"args": ["-"]
+  	}
+  },
   "languageserver": {
 	  "ccls": {
 	    "command": "ccls",
