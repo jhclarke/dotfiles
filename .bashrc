@@ -111,7 +111,7 @@ alias goinos='eval "$(ssh-agent -s)" && ssh-add -D && DISPLAY=1 SSH_ASKPASS=/hom
 alias xboxoff='xbox-cli poweroff'
 alias xboxon='xbox-cli poweron --liveid FD0001B5C6D173A7'
 
-export EDITOR='vim'
+export EDITOR='nvim'
 
 
 #---------------------
