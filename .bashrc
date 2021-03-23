@@ -54,6 +54,8 @@ alias gospt='systemctl --user restart spotifyd && spt'
 alias sysupdate='cd ~/.scripts && . update.sh'
 alias gowin-full='xfreerdp /u:"`gnome-keyring-query get winusn`" /v:`gnome-keyring-query get winip` /workarea -f'
 alias gowin='xfreerdp /u:"`gnome-keyring-query get winusn`"  /v:`gnome-keyring-query get winip`'
+alias gowmac-full='xfreerdp /u:"`gnome-keyring-query get wmacusn`" /v:`gnome-keyring-query get wmacip` /workarea -f'
+alias gowmac='xfreerdp /u:"`gnome-keyring-query get wmacusn`" /v:`gnome-keyring-query get wmacip`'
 
 
 # ProtonVPN
@@ -71,6 +73,9 @@ alias cdbio='cd ~/alab/box/alab_box/SPIM/modeling/biobeam/python/py/ '
 alias gotexas='sudo openconnect -u `gnome-keyring-query get eid`  vpn.utexas.edu'
 alias rdalab-full='xfreerdp /u:`gnome-keyring-query get eid` /v:`gnome-keyring-query get alabip` /workarea -f'
 alias rdalab='xfreerdp /u:`gnome-keyring-query get eid`  /v:`gnome-keyring-query get alabip`'
+alias rdspim-full='xfreerdp /u:"`gnome-keyring-query get spimusn`" /v:`gnome-keyring-query get spimip` /workarea -f'
+alias rdspim='xfreerdp /u:"`gnome-keyring-query get spimusn`"  /v:`gnome-keyring-query get spimip`'
+
 
 ## Virtual Environments
 #----------------------
@@ -106,6 +111,8 @@ alias get='git '
 alias gkinto='eval "$(ssh-agent -s)" && ssh-add -D && ssh-add /home/agathos/.ssh/id_rsa_kinto'
 alias gjc='eval "$(ssh-agent -s)" && ssh-add -D && DISPLAY=1 SSH_ASKPASS=/home/agathos/.ssh/paa/jc ssh-add /home/agathos/.ssh/id_rsa < /dev/null'
 alias goinos='eval "$(ssh-agent -s)" && ssh-add -D && DISPLAY=1 SSH_ASKPASS=/home/agathos/.ssh/paa/oinos ssh-add /home/agathos/.ssh/id_rsa_oinos < /dev/null'
+alias gut='eval "$(ssh-agent -s)" && ssh-add -D && DISPLAY=1
+SSH_ASKPASS=/home/agathos/.ssh/paa/ut ssh-add /home/agathos/.ssh/id_rsa_ut < /dev/null'
 
 # xbox
 alias xboxoff='xbox-cli poweroff'
@@ -113,6 +120,9 @@ alias xboxon='xbox-cli poweron --liveid FD0001B5C6D173A7'
 
 export EDITOR='nvim'
 
+# Helpers
+# ---------------
+alias checkserv='sudo journalctl -f -u '
 
 #---------------------
 # OFX + Ledger Finances
