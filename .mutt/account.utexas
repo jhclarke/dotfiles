@@ -60,7 +60,7 @@ set sidebar_visible=no
 
 # Text editor
 #set editor='vim + -c "set textwidth=72" -c "set wrap" -c "set nocp" -c "?^$"'
-set editor="vim"
+set editor="nvim"
 
 # Adress book handling
 # set sort_alias=alias

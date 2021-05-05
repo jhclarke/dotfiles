@@ -1,7 +1,8 @@
 #
 # ~/.bashrc
 #
-screenfetch -c "5;6,0;0"
+screenfetch -N 
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -61,7 +62,7 @@ alias gowmac='xfreerdp /u:"`gnome-keyring-query get wmacusn`" /v:`gnome-keyring-
 # ProtonVPN
 alias pvpn='sudo protonvpn '
 alias pvpnsecure='sudo protonvpn c --sc -p tcp'
-alias pvpnrand='sudo protonvpn c -r -p tcp' 
+alias pvpnrand='sudo protonvpn c -r -p tcp'
 alias pvpnupdate='sudo pip3 uninstall protonvpn-cli'
 
 # Python/Research Shortcuts
@@ -107,7 +108,7 @@ alias gx='gitx --all'
 alias got='git '
 alias get='git '
 
-# SSH 
+# SSH
 alias gkinto='eval "$(ssh-agent -s)" && ssh-add -D && ssh-add /home/agathos/.ssh/id_rsa_kinto'
 alias gjc='eval "$(ssh-agent -s)" && ssh-add -D && DISPLAY=1 SSH_ASKPASS=/home/agathos/.ssh/paa/jc ssh-add /home/agathos/.ssh/id_rsa < /dev/null'
 alias goinos='eval "$(ssh-agent -s)" && ssh-add -D && DISPLAY=1 SSH_ASKPASS=/home/agathos/.ssh/paa/oinos ssh-add /home/agathos/.ssh/id_rsa_oinos < /dev/null'
