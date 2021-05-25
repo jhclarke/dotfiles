@@ -24,7 +24,7 @@ if exists('g:vim_virtualenv_path')
 endif
 
 " Run python script with Ctrl-i
-autocmd FileType python map <buffer> <C-r> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
-autocmd FileType python imap <buffer> <C-r> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+autocmd FileType python map <buffer> <C-s> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+autocmd FileType python imap <buffer> <C-s> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 
 " vim:ft=vim

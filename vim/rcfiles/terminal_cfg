@@ -61,6 +61,16 @@ augroup auto_save_folds
   autocmd BufWinEnter * silent! loadview
 augroup END
 
+" " Tab navigation
+" cnoreabbrev <expr> tn getcmdtype() == ":" && getcmdline() == 'tn' ? 'tabnew' : 'tn'
+" cnoreabbrev <expr> th getcmdtype() == ":" && getcmdline() == 'th' ? 'tabp' : 'th'
+" cnoreabbrev <expr> tl getcmdtype() == ":" && getcmdline() == 'tl' ? 'tabn' : 'tl'
+" cnoreabbrev <expr> te getcmdtype() == ":" && getcmdline() == 'te' ? 'tabedit' : 'te'
+
+" Tab navigation like Firefox.
+nnoremap <C-t>     :tabnew<CR>
+inoremap <C-t>     <Esc>:tabnew<CR>
+
 " Artifact from poweline/lightline
 set laststatus=2
 
