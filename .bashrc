@@ -46,6 +46,7 @@ alias open='xdg-open '
 alias blth='bluetoothctl '
 alias vim='nvim '
 alias SE='sudo -E nvim '
+alias ls='ls -la' # More useful..
 
 # VPN/VNC Shortcuts
 #------------------
