@@ -48,6 +48,7 @@ alias vim='nvim '
 alias SE='sudo -E nvim '
 alias k='kill '
 alias ka='killall '
+alias todo='vim ~/todo.md'
 
 # VPN/VNC Shortcuts
 #------------------
