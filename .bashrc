@@ -74,11 +74,20 @@ alias jn='jupyter notebook '
 alias jqt='jupyter qtconsole & '
 alias pyenv_main='cd /usr/pyenvs && source main/bin/activate '
 alias cdbio='cd ~/alab/box/alab_box/SPIM/modeling/biobeam/python/py/ '
+alias cdmrsec='cd ~/alab/local/mrsec/'
 alias gotexas='sudo openconnect -u `gnome-keyring-query get eid`  vpn.utexas.edu'
 alias rdalab-full='xfreerdp /u:`gnome-keyring-query get eid` /v:`gnome-keyring-query get alabip` /workarea -f'
 alias rdalab='xfreerdp /u:`gnome-keyring-query get eid`  /v:`gnome-keyring-query get alabip`'
 alias rdspim-full='xfreerdp /u:"`gnome-keyring-query get spimusn`" /v:`gnome-keyring-query get spimip` /workarea -f'
 alias rdspim='xfreerdp /u:"`gnome-keyring-query get spimusn`"  /v:`gnome-keyring-query get spimip`'
+
+# alias mount_mrsecbox='rclone mount mrsec_boxremote: ~/alab/box/alab_mrsec_box --vfs-cache-mode writes --dir-cache-time 30s --cache-dir ~/alab/box/mrsec/.cache --poll-interval 5s'
+# alias unmount_mrsecbox='fusermount -uz ~/alab/box/alab_mrsec_box'
+
+
+# Documents
+#-----------------
+alias pandoc_jc='pandoc -f markdown -V linkcolor:blue --pdf-engine=xelatex -t pdf -s '
 
 
 ## Virtual Environments
