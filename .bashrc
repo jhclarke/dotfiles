@@ -1,7 +1,7 @@
 #
 # ~/.bashrc
 #
-screenfetch -N 
+screenfetch -N
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -48,7 +48,8 @@ alias vim='nvim '
 alias SE='sudo -E nvim '
 alias k='kill '
 alias ka='killall '
-alias todo='vim ~/todo.md'
+alias todo='vim ~/TODO.md'
+alias cdlls='cd ~/Documents/LLS '
 
 # VPN/VNC Shortcuts
 #------------------
@@ -80,6 +81,9 @@ alias rdalab-full='xfreerdp /u:`gnome-keyring-query get eid` /v:`gnome-keyring-q
 alias rdalab='xfreerdp /u:`gnome-keyring-query get eid`  /v:`gnome-keyring-query get alabip`'
 alias rdspim-full='xfreerdp /u:"`gnome-keyring-query get spimusn`" /v:`gnome-keyring-query get spimip` /workarea -f'
 alias rdspim='xfreerdp /u:"`gnome-keyring-query get spimusn`"  /v:`gnome-keyring-query get spimip`'
+alias rdepi-full='xfreerdp /u:"`gnome-keyring-query get epiusn`" /v:`gnome-keyring-query get epiip` /workarea -f'
+alias rdepi='xfreerdp /u:"`gnome-keyring-query get epiusn`"  /v:`gnome-keyring-query get epiip`'
+
 
 # alias mount_mrsecbox='rclone mount mrsec_boxremote: ~/alab/box/alab_mrsec_box --vfs-cache-mode writes --dir-cache-time 30s --cache-dir ~/alab/box/mrsec/.cache --poll-interval 5s'
 # alias unmount_mrsecbox='fusermount -uz ~/alab/box/alab_mrsec_box'
@@ -121,11 +125,11 @@ alias got='git '
 alias get='git '
 
 # SSH
-alias gkinto='eval "$(ssh-agent -s)" && ssh-add -D && ssh-add /home/agathos/.ssh/id_rsa_kinto'
+alias gkinto='eval "$(ssh-agent -s)" && ssh-add -D && ssh-add /home/agathos/.ssh/id_rsa_kinto < /dev/null'
 alias gjc='eval "$(ssh-agent -s)" && ssh-add -D && DISPLAY=1 SSH_ASKPASS=/home/agathos/.ssh/paa/jc ssh-add /home/agathos/.ssh/id_rsa < /dev/null'
 alias goinos='eval "$(ssh-agent -s)" && ssh-add -D && DISPLAY=1 SSH_ASKPASS=/home/agathos/.ssh/paa/oinos ssh-add /home/agathos/.ssh/id_rsa_oinos < /dev/null'
-alias gut='eval "$(ssh-agent -s)" && ssh-add -D && DISPLAY=1
-SSH_ASKPASS=/home/agathos/.ssh/paa/ut ssh-add /home/agathos/.ssh/id_rsa_ut < /dev/null'
+alias gut='eval "$(ssh-agent -s)" && ssh-add -D && DISPLAY=1 SSH_ASKPASS=/home/agathos/.ssh/paa/ut ssh-add /home/agathos/.ssh/id_rsa_ut < /dev/null'
+alias glls='eval "$(ssh-agent -s)" && ssh-add -D && ssh-add /home/agathos/.ssh/id_rsa_lls < /dev/null'
 
 # xbox
 alias xboxoff='xbox-cli poweroff'
@@ -142,6 +146,21 @@ function fif() {
   if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi
   rg --files-with-matches --no-messages "$1" | fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 10 '$1' || rg --ignore-case --pretty --context 10 '$1' {}"
 }
+
+function docx_search() {
+  local arg wordfile terms=() root=${root:-/}
+  # this 'root' assignment allows you to search in a specific location like /cygdrive/c/ instead of everywhere on the machine
+  for arg; do terms+=(-e "$arg"); done
+  # We inject the terms to search inside the string with declare -p`
+  find 2>/dev/null "${root%/}/" -iname '*.docx' -exec \
+    bash -c "$(declare -p terms)"';
+      for arg; do
+        unzip -p "$arg" 2>/dev/null |
+          grep --quiet --ignore-case --fixed-strings "${terms[@]}" &&
+          printf %s\\n "$arg"
+      done' _ {} +
+}
+
 #---------------------
 # OFX + Ledger Finances
 #---------------------
@@ -153,8 +172,23 @@ powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
 . /usr/share/powerline/bindings/bash/powerline.sh
+
+# RUBY settings were changed with RVM install instructions
 # Install Ruby Gems to ~/gems
-export GEM_HOME="$HOME/gems"
-export PATH="$HOME/gems/bin:$PATH"
+# export GEM_HOME="$HOME/gems"
+# export PATH="$HOME/gems/bin:$PATH"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# bitwarden
+
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+# RVM bash completion
+[[ -r "$HOME/.rvm/scripts/completion" ]] && source "$HOME/.rvm/scripts/completion"
+
+
+# BEGIN_KITTY_SHELL_INTEGRATION
+if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
+# END_KITTY_SHELL_INTEGRATION
