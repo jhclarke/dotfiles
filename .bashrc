@@ -89,9 +89,10 @@ alias rdepi='xfreerdp /u:"`gnome-keyring-query get epiusn`"  /v:`gnome-keyring-q
 # alias unmount_mrsecbox='fusermount -uz ~/alab/box/alab_mrsec_box'
 
 
-# Documents
+# Latex + Markdown Documents
 #-----------------
 alias pandoc_jc='pandoc -f markdown -V linkcolor:blue --pdf-engine=xelatex -t pdf -s '
+alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
 
 
 ## Virtual Environments
@@ -114,7 +115,8 @@ alias gb='git branch '
 alias gc='git commit '
 alias gcm='git commit -m '
 alias gpcred='git config credential.helper store && git push -u origin master '
-alias gpom='git push -u origin master '
+alias gpomaster='git push -u origin master '
+alias gpomain='git push -u origin main '
 alias gp='git push '
 alias gd='git diff '
 alias gco='git checkout '
