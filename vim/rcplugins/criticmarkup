@@ -1,0 +1,3 @@
+Plug 'vim-pandoc/vim-criticmarkup' " Pandoc
+
+" vim:ft=vim

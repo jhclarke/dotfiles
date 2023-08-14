@@ -50,6 +50,8 @@ alias k='kill '
 alias ka='killall '
 alias todo='vim ~/TODO.md'
 alias cdlls='cd ~/Documents/LLS '
+alias cdgpt='cd ~/Documents/personal/chatgpt '
+alias odt2md='cd /home/agathos/.scripts && . odt2md.sh '
 
 # VPN/VNC Shortcuts
 #------------------
@@ -92,8 +94,10 @@ alias rdepi='xfreerdp /u:"`gnome-keyring-query get epiusn`"  /v:`gnome-keyring-q
 # Latex + Markdown Documents
 #-----------------
 alias pandoc_jc='pandoc -f markdown -V linkcolor:blue --pdf-engine=xelatex -t pdf -s '
-alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
+alias pandoc_manuscript='pandoc -f markdown -V linkcolor:blue --pdf-engine=xelatex --bibliography=bibliography.bib --csl=applied_optics.csl --citeproc -t pdf -s '
+alias pdf_stitch='cd /home/agathos/.scripts && ./pdf_stitch.sh ' 
 
+alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
 
 ## Virtual Environments
 #----------------------
@@ -117,6 +121,7 @@ alias gcm='git commit -m '
 alias gpcred='git config credential.helper store && git push -u origin master '
 alias gpomaster='git push -u origin master '
 alias gpomain='git push -u origin main '
+alias gpogh='git push -u origin gh-pages '
 alias gp='git push '
 alias gd='git diff '
 alias gco='git checkout '

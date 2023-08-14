@@ -55,4 +55,69 @@ autocmd FileType mail setlocal commentstring=>\ %s
 autocmd FileType vim setlocal commentstring=\"\ %s
 autocmd FileType fortran setlocal commentstring=!\ %s
 
+function! AppendDateToArchive()
+    let completed_date = strftime("%Y%m%d")
+    let archive_file = expand("~/archive.md")
+
+    " Check if the date exists in ~/archive.md
+    let date_exists = system("grep -q '^" . completed_date . "' " . archive_file)
+
+    if date_exists == 1
+        " Date already exists in ~/archive.md
+        echo "Date already exists in ~/archive.md."
+    else
+        " Append the date to ~/archive.md
+        call writefile([completed_date], archive_file, "a")
+        echo "Date (" . completed_date . ") appended to ~/archive.md."
+    endif
+endfunction
+" Map the custom binding to Ctrl-x followed by Ctrl-d
+nnoremap <C-x><C-d> :call AppendDateToArchive()<CR>
+
+function! PrependToFile(file, lines)
+    let existing_lines = readfile(a:file)
+    let new_lines = a:lines + existing_lines
+    call writefile(new_lines, a:file)
+endfunction
+
+" Custom Vim binding to mark action items as completed and move them to ~/archive.md
+function! ArchiveActionItem()
+    let l:line = getline('.')
+    let l:description = getline('.') + 1
+    let completed_date = strftime("%Y%m%d")
+    let content_to_prepend = [completed_date]
+    let archive_file = expand("~/archive.md")
+    if getline(l:description) =~ '^-\s'
+        let l:description = getline(l:description)
+    else
+        let l:description = ''
+    endif
+    " Check if the date exists in ~/archive.md
+    let date_exists = system("grep '" . completed_date . "' " . archive_file)  
+    echom date_exists
+
+    " Check if the current date exists in ~/archive.md
+    if date_exists == 1
+	" Append the action item below the last one with that date
+	call append(l:line . l:description)
+        execute "write! >> ~/archive.md"
+    else
+        " Add the date and the action item separately
+        call PrependToFile(archive_file, content_to_prepend)
+        call append(l:line . l:description)
+        execute "write! >> ~/archive.md"
+    endif
+
+    " Delete the action item and description from ~/TODO.md
+    " execute 'normal! k'
+    " execute 'normal! k'
+    " execute 'normal! dd'
+    " execute 'normal! dd'
+    " execute 'normal! dd'
+endfunction
+
+" Map the custom binding to Ctrl-x followed by Ctrl-a
+nnoremap <C-x><C-a> :call ArchiveActionItem()<CR>
+
+
 " vim:ft=vim
