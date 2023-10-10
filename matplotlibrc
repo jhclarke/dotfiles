@@ -1,0 +1,66 @@
+##### MATPLOTLIBRC FORMAT
+
+### Lines
+lines.linewidth   : 2.0     # line width in points
+lines.linestyle   : -       # solid line
+lines.color       : C0      # line color
+
+### Patches
+patch.linewidth   : 0.5     # edge width in points
+patch.facecolor   : C0
+patch.edgecolor   : white
+patch.antialiased : True
+
+### Fonts
+font.family         : sans-serif
+font.sans-serif     : DejaVu Sans, sans-serif, Arial, Helvetica
+font.size           : 12.0
+font.weight         : regular
+
+### Text
+text.color          : black
+
+### Axes
+axes.facecolor      : white  # axes background color
+axes.edgecolor      : black  # axes edge color
+axes.grid           : True   # display grid or not
+axes.grid.axis      : both   # which axis the grid should appear
+axes.grid.which     : major  # gridlines at major, minor or both ticks
+axes.titlesize      : large
+axes.labelsize      : medium
+axes.labelcolor     : black
+axes.axisbelow      : line   # draw axis gridlines and ticks below patches
+
+### Ticks
+xtick.top           : False
+xtick.bottom        : True
+xtick.color         : black
+xtick.direction     : out
+ytick.left          : True
+ytick.right         : False
+ytick.color         : black
+ytick.direction     : out
+
+### Grid
+grid.color       : "#d3d3d3"  # grid color
+grid.linestyle   : -        # solid
+grid.linewidth   : 0.5      # in points
+
+### Legend
+legend.frameon       : True  # if True, draw a frame around the legend. If None, use rcParams["legend.frameon"]
+
+### Figure
+figure.figsize    : 7, 5    # figure size in inches
+figure.dpi        : 100     # figure dots per inch
+figure.facecolor  : white   # figure facecolor
+figure.edgecolor  : white   # figure edgecolor
+
+### Save figures
+savefig.dpi       : 300     # figure dots per inch
+savefig.format    : png     # png, ps, pdf, svg
+savefig.bbox      : tight   # 'tight' or 'standard'
+savefig.transparent: True   # make the background of the saved figure transparent
+
+### Color cycle for multiple lines
+axes.prop_cycle   : cycler(color=["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf"])
+
